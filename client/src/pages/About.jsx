@@ -22,7 +22,7 @@ const About = () => {
     },
     {
       name: 'Deepak Bhatt',
-      position: 'Chief Technical Officer(CTO)',
+      position: 'Lead Web Architect',
       bio: 'Designing stunning, high-performance websites that bring brands to life.'
     },
     {

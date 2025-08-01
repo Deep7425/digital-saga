@@ -5,6 +5,11 @@ import TiltCard from './TiltCard';
 const Services = () => {
   const services = [
     {
+      icon: 'fas fa-envelope',
+      title: 'Web & App Development',
+      description: 'Development using latest technologies which makes website or application much more dynamic and interactive.'
+    },
+    {
       icon: 'fas fa-search',
       title: 'SEO Optimization',
       description: 'Boost your search engine rankings and drive organic traffic with our comprehensive SEO strategies.'
@@ -28,11 +33,6 @@ const Services = () => {
       icon: 'fas fa-mobile-alt',
       title: 'Mobile Marketing',
       description: 'Reach your customers on-the-go with targeted mobile marketing campaigns and responsive design.'
-    },
-    {
-      icon: 'fas fa-envelope',
-      title: 'Email Marketing',
-      description: 'Nurture leads and retain customers with personalized email campaigns that drive conversions.'
     }
   ];
 
