@@ -1,0 +1,572 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(249, 83%, 63%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(263, 69%, 69%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(158, 64%, 52%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  --warning: hsl(43, 96%, 56%);
+  --dark: hsl(215, 28%, 17%);
+  --light: hsl(210, 40%, 98%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(249, 83%, 63%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+}
+
+/* Navbar */
+
+.logo {
+  height: 40px;
+  padding-right: 30px;
+}
+
+.navbar-custom {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.886);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#navbarr {
+  background-color: rgba(0, 16, 42, 0.295);
+}
+
+.navbar-shrink {
+  padding: 0.25rem 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white !important;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: hsl(300, 83%, 63%) !important;
+  background: rgba(153, 152, 152, 0.232);
+  transform: translateY(-2px);
+}
+
+
+/* Main landing page */
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, hsl(286, 78%, 33%), hsl(235, 78%, 33%));
+}
+
+.gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 60%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, rgb(202, 78, 12), rgb(255, 255, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 4.7rem;
+  font-weight: 700;
+  margin: 2rem 0rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin: 2rem 0rem;
+  color: rgb(193, 193, 193);
+}
+
+/* Service cards */
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease;
+  cursor: pointer;
+}
+
+.tilt-card:hover {
+  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale(1.05);
+}
+
+.services-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 350px;
+  min-height: 350px;
+  max-height: 400px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.services-card {
+  background: rgb(254, 254, 254);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 400px;
+  min-height: 200px;
+  max-height: 350px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+}
+
+.services-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.297);
+  transform: translateY(-2px);
+}
+
+.services-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.527);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, hsl(253, 95%, 37%), hsl(283, 96%, 35%));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-icon-small {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, hsl(253, 95%, 37%), hsl(283, 96%, 35%));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.nav-linkk {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem !important;
+  text-decoration: none;
+  border-radius: 8px;
+  &:hover{
+    background-color: transparent;
+  }
+}
+
+/* Portfolio section */
+.container-fluid {
+  background: linear-gradient(135deg, hsl(286, 78%, 33%), hsl(235, 78%, 33%));
+  padding: 50px 0px;
+}
+
+
+.contact-form {
+  background: white;
+  border-radius: 15px;
+  padding: 3rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: hsl(233, 96%, 35%);
+  box-shadow: 0 0 0 0.2rem hsla(249, 83%, 63%, 0.25);
+}
+
+.btn-primary-custom {
+  background: linear-gradient(135deg, hsl(241, 83%, 40%), hsl(288, 83%, 40%));
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.btn {
+  margin-top: 30px;
+  border: 2px solid hsl(241, 83%, 40%);
+  color: hsl(231, 83%, 40%);
+  padding: 10px 40px 10px 40px;
+  font-size: large;
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px hsla(248, 99%, 36%, 0.4);
+  color: white;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0; 
+  height: 100vh;
+  width: 300px;
+  max-width: 100%;
+  background: hsla(241, 93%, 24%, 0.452);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem;
+  z-index: 10001;
+  overflow-y: auto;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sideNavHead{
+  font-family: "Ubuntu", sans-serif;
+}
+
+
+.sidebar-overlay.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 1rem;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.75rem 0;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a:hover {
+  color: hsl(249, 83%, 63%);
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 1rem;
+}
+
+.section {
+  padding: 80px 0px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: hsl(215, 28%, 17%);
+}
+
+.footer {
+  background: linear-gradient(135deg, hsl(286, 78%, 33%), hsl(235, 78%, 33%));
+  color: white;
+  padding: 3rem 0 2rem;
+}
+
+.footer h5 {
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 1rem;
+}
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: hsl(172, 62%, 42%);
+}
+
+.footer-head{
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* Gradient Button Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Tilt Card */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.tilt-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, hsla(249, 83%, 63%, 0.1), hsla(263, 69%, 69%, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.tilt-card:hover::before {
+  opacity: 1;
+}
+
+/* Navbar */
+.navbar-custom {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border-radius: 0 0 20px 20px;
+}
+
+.navbar-custom.scrolled {
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link.active {
+  color: hsl(249, 83%, 63%) !important;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Button Styling */
+.btn-primary-custom {
+  background: linear-gradient(135deg, hsl(249, 83%, 63%), hsl(263, 69%, 69%));
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary-custom:hover::before {
+  left: 100%;
+}
+
+
+/* Services Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.services-grid .col-lg-4,
+.services-grid .col-md-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .services-card {
+    height: auto;
+    min-height: 280px;
+    max-height: none;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tilt-card {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .tilt-card::before {
+    display: none;
+  }
+
+  .gradient-bg {
+    display: none;
+  }
+
+  .portfolio-popup {
+    display: none;
+  }
+}
