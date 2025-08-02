@@ -15,16 +15,17 @@ const About = () => {
       position: 'Founder & Chief Brand Strategist',
       bio: 'The brain behind Digital Saga – turning ideas into powerful brand stories and strategies.'
     },
+        {
+      name: 'Deepak Bhatt',
+      position: 'Chief Techical Officer (CTO)',
+      bio: 'Designing stunning, high-performance websites that bring brands to life.'
+    },
     {
       name: 'Meghna Sharma',
       position: 'Head of Social Strategy & Content',
       bio: 'Leads our social media magic – creating scroll-stopping content and engaging communities.'
     },
-    {
-      name: 'Deepak Bhatt',
-      position: 'Chief Techical Officer (CTO)',
-      bio: 'Designing stunning, high-performance websites that bring brands to life.'
-    },
+
     {
       name: 'Chetna Sharma',
       position: 'Creative Operations Specialist',
