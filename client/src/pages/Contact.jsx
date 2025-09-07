@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,13 +59,52 @@ const Contact = () => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-      setTimeout(() => {
-        alert('Thank you for your message! We will get back to you within 24 hours.');
-        setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' });
+      try {
+        const response = await fetch('http://localhost:3001/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          await Swal.fire({
+            title: 'Success!',
+            text: 'Thank you for your message! We will get back to you within 24 hours.',
+            icon: 'success',
+            confirmButtonText: 'Great!',
+            confirmButtonColor: '#6c5ce7',
+            background: '#fff',
+            showClass: {
+              popup: 'animate__animated animate__fadeInUp'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutDown'
+            }
+          });
+          setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' });
+          navigate('/');
+        } else {
+          throw new Error('Failed to submit form');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        await Swal.fire({
+          title: 'Oops!',
+          text: 'Sorry, there was an error submitting your form. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'Try Again',
+          confirmButtonColor: '#e74c3c',
+          background: '#fff',
+          showClass: {
+            popup: 'animate__animated animate__shakeX'
+          }
+        });
+      } finally {
         setIsSubmitting(false);
-        console.log(formData)
-        navigate('/');
-      }, 2000);
+      }
     }
   };
 

@@ -6,6 +6,7 @@ import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Services from "./pages/Services.jsx";
+import AdminContacts from "./pages/AdminContacts.jsx";
 
 
 function ScrollToTop() {
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
+        <Route path="/admin/digitalsaga-contact-admin" component={AdminContacts} />
         <Route component={NotFound} />
       </Switch>
       <CursorFollower/>
