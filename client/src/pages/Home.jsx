@@ -41,7 +41,7 @@ const Home = () => {
           >
             About Digital Saga
           </motion.h2>
-
+{/* done */}
           <div className="row align-items-center">
             <div className="col-lg-6">
               {isMobile ? (
