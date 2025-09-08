@@ -18,7 +18,7 @@ const AdminContacts = () => {
   const fetchContacts = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:3001/contact');
+      const response = await fetch('https://digitalsaga.in/api/contact');
       if (response.ok) {
         const data = await response.json();
         setContacts(data);

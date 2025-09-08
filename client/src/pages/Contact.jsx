@@ -60,7 +60,7 @@ const Contact = () => {
     if (validateForm()) {
       setIsSubmitting(true);
       try {
-        const response = await fetch('http://localhost:3001/contact', {
+        const response = await fetch('https://digitalsaga.in/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

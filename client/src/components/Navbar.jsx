@@ -157,13 +157,13 @@ const Navbar = () => {
               </motion.span>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/admin/digitalsaga-contact-admin" onClick={closeSidebar}>
               <motion.span whileHover={{ x: 10 }} transition={{ duration: 0.2 }}>
                 <i className="fas fa-user-shield me-1"></i>Admin
               </motion.span>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </motion.div>
 
