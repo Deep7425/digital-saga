@@ -38,15 +38,33 @@ export default function PortfolioSection() {
     const portfolioItems = [
         {
             id: 1,
+            clientName: "Imperial Spice – Multi‑Cuisine Restaurant & Café, Jaisalmer",
+            industry: "Social Media Managemnt & Performance Marketing",
+            result: "20% month-on-month increase in footfall from ads.",
+            description: "We built a location-first content funnel for Jaisalmer’s multi-cuisine hotspot — from dusk-lit food reels to tourist-ready directions and story-led posts that converted views into visits.",
+            image: "images/jaisalmer.jpg",
+            color: "#08b5e9ff"
+        },
+         {
+            id: 2,
+            clientName: "Panchayat Cafe",
+            industry: "Content Strategy, Organic Growth & Reels",
+            result: "Strong local brand presence and higher footfall through nearby-targeted ads.",
+            description: "We crafted a desi-vibe content plan — chai stories, hangout reels, and combo highlights — designed to make Jaipur fall in love with conversations over chai. The brand’s presence grew stronger, footfall increased, and daily as well as recurring customers multiplied.",
+            image: "images/pach.jpg",
+            color: "#08b5e9ff"
+        },
+         {
+            id: 3,
             clientName: "Jaipur Jazba",
-            industry: "Content Strategy, Social Media Ads",
-            result: "10,000+ Organic Followers within 2 Months",
-            description: "We crafted a custom content strategy and ad funnel for Jaipur’s trendiest kurti brand. From concept to execution, every reel and post was designed to connect with Jaipur’s fashion-savvy audience.",
+            industry: "Content Strategy & Social Media Launch",
+            result: "8,000+ organic followers even before the official launch.",
+            description: "We built massive pre-launch hype for Jaipur Jazba and helped the brand get a grand offline launch opportunity during The Vogue Edition event — creating strong buzz before its official debut.",
             image: "images/Jaipur-Jazba.png",
             color: "#08b5e9ff"
         },
         {
-            id: 2,
+            id: 4,
             clientName: "Najin & Fatu",
             industry: "Website Design and Development",
             result: "A clean, educational platform for a cause-driven NGO.",
@@ -55,7 +73,7 @@ export default function PortfolioSection() {
             color: "#f993fbff"
         },
         {
-            id: 3,
+            id: 5,
             clientName: "Mahanagar Times",
             industry: "Social Media Management, Visual Branding",
             result: "250% reach increase",
@@ -64,7 +82,7 @@ export default function PortfolioSection() {
             color: "#d4eb04ff"
         },
         {
-            id: 4,
+            id: 6,
             clientName: "SEO Projects",
             industry: "On-page + Off-page SEO & Technical SEO",
             result: "Ranking That Speaks",
@@ -73,7 +91,7 @@ export default function PortfolioSection() {
             color: "#fa709a"
         },
         {
-            id: 5,
+            id: 7,
             clientName: "Engaging Video Edits",
             industry: "Trend-based Reels, Voiceover Edits, Social Ads",
             result: "Short, Smart, Scroll-Stopping, Increasing reach",
@@ -82,7 +100,7 @@ export default function PortfolioSection() {
             color: "#a8edea"
         },
         {
-            id: 6,
+            id: 8,
             clientName: "Graphic Designing",
             industry: "Visual Branding & Graphic Designing",
             result: "Crafted designs that speak your brand language.",
