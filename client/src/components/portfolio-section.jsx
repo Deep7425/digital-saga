@@ -38,21 +38,22 @@ export default function PortfolioSection() {
     const portfolioItems = [
         {
             id: 1,
-            clientName: "Imperial Spice – Multi‑Cuisine Restaurant & Café, Jaisalmer",
-            industry: "Social Media Managemnt & Performance Marketing",
-            result: "20% month-on-month increase in footfall from ads.",
-            description: "We built a location-first content funnel for Jaisalmer’s multi-cuisine hotspot — from dusk-lit food reels to tourist-ready directions and story-led posts that converted views into visits.",
-            image: "images/jaisalmer.jpg",
-            color: "#08b5e9ff"
-        },
-         {
-            id: 2,
             clientName: "Panchayat Cafe",
             industry: "Content Strategy, Organic Growth & Reels",
             result: "Strong local brand presence and higher footfall through nearby-targeted ads.",
             description: "We crafted a desi-vibe content plan — chai stories, hangout reels, and combo highlights — designed to make Jaipur fall in love with conversations over chai. The brand’s presence grew stronger, footfall increased, and daily as well as recurring customers multiplied.",
             image: "images/pach.jpg",
             color: "#08b5e9ff"
+        },
+         {
+            id: 2,
+            clientName: "Imperial Spice – Multi‑Cuisine Restaurant & Café, Jaisalmer",
+            industry: "Social Media Managemnt & Performance Marketing",
+            result: "20% month-on-month increase in footfall from ads.",
+            description: "We built a location-first content funnel for Jaisalmer’s multi-cuisine hotspot — from dusk-lit food reels to tourist-ready directions and story-led posts that converted views into visits.",
+            image: "images/jaisalmer.jpg",
+            color: "#08b5e9ff"
+           
         },
          {
             id: 3,
