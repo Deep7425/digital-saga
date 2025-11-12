@@ -38,7 +38,7 @@ export default function PortfolioSection() {
     const portfolioItems = [
         {
             id: 1,
-            clientName: "Panchayat Cafe",
+            clientName: "Panchayat Cafe, Jaipur",
             industry: "Content Strategy, Organic Growth & Reels",
             result: "Strong local brand presence and higher footfall through nearby-targeted ads.",
             description: "We crafted a desi-vibe content plan — chai stories, hangout reels, and combo highlights — designed to make Jaipur fall in love with conversations over chai. The brand’s presence grew stronger, footfall increased, and daily as well as recurring customers multiplied.",
