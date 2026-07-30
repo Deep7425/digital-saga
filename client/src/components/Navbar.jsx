@@ -46,10 +46,9 @@ const Navbar = () => {
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-                      <Link href="/" className="navbar-brand fs-3 pt-2">
-              <img src="/images/logo.png" alt="logo" className='logo' />
-              Digital Saga
-            </Link>
+          <Link href="/" className="navbar-brand fs-3 pt-2">
+            <img src="/images/logo.png" alt="Digital Saga logo" className='logo' />Digital Saga
+          </Link>
 
           <button
             className="navbar-toggler d-lg-none border-0"
@@ -90,13 +89,6 @@ const Navbar = () => {
                   </motion.span>
                 </Link>
               </li>
-                             {/* <li className="nav-item">
-                 <Link href="/admin/digitalsaga-contact-admin" className={`nav-link ${location === '/admin/digitalsaga-contact-admin' ? 'active' : ''}`}>
-                   <motion.span whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                     <i className="fas fa-user-shield me-1"></i>Admin
-                   </motion.span>
-                 </Link>
-               </li> */}
             </ul>
           </div>
         </motion.div>
@@ -124,7 +116,7 @@ const Navbar = () => {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h4 className="sideNavHead mb-0" style={{ color: 'white' }}>Digital Saga</h4>
+          <h4 className="mb-0" style={{ color: 'white' }}>Digital Saga</h4>
           <button className="btn-close btn-close-white" onClick={closeSidebar}></button>
         </div>
 
@@ -157,13 +149,6 @@ const Navbar = () => {
               </motion.span>
             </Link>
           </li>
-          {/* <li>
-            <Link href="/admin/digitalsaga-contact-admin" onClick={closeSidebar}>
-              <motion.span whileHover={{ x: 10 }} transition={{ duration: 0.2 }}>
-                <i className="fas fa-user-shield me-1"></i>Admin
-              </motion.span>
-            </Link>
-          </li> */}
         </ul>
       </motion.div>
 

@@ -7,8 +7,8 @@ export default function CursorFollower() {
     const mouseY = useMotionValue(0)
     const scale = useSpring(1, { stiffness: 300, damping: 20 })
 
-    const springX = useSpring(mouseX, { stiffness: 180, damping: 20 })
-    const springY = useSpring(mouseY, { stiffness: 180, damping: 20 })
+    const springX = useSpring(mouseX, { stiffness: 100, damping: 20 })
+    const springY = useSpring(mouseY, { stiffness: 100, damping: 20 })
 
     const [isHovering, setIsHovering] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
@@ -67,8 +67,8 @@ export default function CursorFollower() {
                 position: 'fixed',
                 top: 0,
                 left: 0,
-                width: 25,
-                height: 25,
+                width: 30,
+                height: 30,
                 borderRadius: '50%',
                 backgroundColor: '#fff',
                 mixBlendMode: 'difference',
