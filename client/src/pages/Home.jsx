@@ -65,7 +65,7 @@ const Home = () => {
 
             <div className="col-lg-6 mt-4 mt-lg-0">
               {isMobile ? (
-                <div className='homeAbout'>
+                <div>
                   <h3 className="mb-4">Leading Digital Innovation Since 2020</h3>
                   <p className="mb-4">
                     Digital Saga is a cutting-edge digital marketing agency that specializes in creating compelling online experiences. Our team of creative professionals combines strategic thinking with innovative technology to deliver exceptional results for our clients.

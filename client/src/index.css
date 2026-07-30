@@ -26,6 +26,7 @@
   --warning: hsl(43, 96%, 56%);
   --dark: hsl(215, 28%, 17%);
   --light: hsl(210, 40%, 98%);
+  --site-gradient: linear-gradient(135deg, hsl(286, 78%, 33%), hsl(235, 78%, 33%));
 }
 
 .dark {
@@ -80,7 +81,7 @@
 }
 
 #navbarr {
-  background-color: rgba(0, 16, 42, 0.295);
+  background: var(--site-gradient);
 }
 
 .navbar-shrink {
@@ -92,9 +93,6 @@
   font-weight: 700;
   font-size: 1.5rem;
   color: white !important;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 700;
-  font-style: normal;
 }
 
 .nav-link {
@@ -121,7 +119,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, hsl(286, 78%, 33%), hsl(235, 78%, 33%));
+  background: var(--site-gradient);
 }
 
 .gradient-bg {
@@ -152,7 +150,7 @@
 }
 
 .hero-title {
-  font-size: 4.7rem;
+  font-size: 5rem;
   font-weight: 700;
   margin: 2rem 0rem;
   line-height: 1.2;
@@ -195,7 +193,7 @@
 }
 
 .services-card {
-  background: rgb(254, 254, 254);
+  background: white;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -212,12 +210,12 @@
 }
 
 .services-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.297);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
 }
 
 .services-card:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.527);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.219);
 }
 
 .service-icon {
@@ -260,9 +258,36 @@
 }
 
 /* Portfolio section */
-.container-fluid {
-  background: linear-gradient(135deg, hsl(286, 78%, 33%), hsl(235, 78%, 33%));
+#portfolio .container-fluid {
+  background: var(--site-gradient);
   padding: 50px 0px;
+}
+
+.portfolio-list-item {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio-card-image {
+  aspect-ratio: 4 / 3;
+  min-height: 180px;
+}
+
+.portfolio-card-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-card-image-img.portfolio-image-missing {
+  object-fit: contain;
+  padding: 1.5rem;
+  opacity: 0.35;
 }
 
 
@@ -319,17 +344,12 @@
   height: 100vh;
   width: 300px;
   max-width: 100%;
-  background: hsla(241, 93%, 24%, 0.452);
-  backdrop-filter: blur(10px);
+  background-color: #2e65cb;
   padding: 2rem 1.5rem;
   z-index: 10001;
   overflow-y: auto;
   box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease-in-out;
-}
-
-.sideNavHead{
-  font-family: "Ubuntu", sans-serif;
 }
 
 
@@ -394,7 +414,7 @@
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
@@ -402,7 +422,7 @@
 }
 
 .footer {
-  background: linear-gradient(135deg, hsl(286, 78%, 33%), hsl(235, 78%, 33%));
+  background: var(--site-gradient);
   color: white;
   padding: 3rem 0 2rem;
 }
@@ -419,11 +439,7 @@
 }
 
 .footer a:hover {
-  color: hsl(172, 62%, 42%);
-}
-
-.footer-head{
-  font-family: "Ubuntu", sans-serif;
+  color: hsl(221, 70%, 16%);
 }
 
 /* Gradient Button Animation */
@@ -469,7 +485,7 @@
 
 /* Navbar */
 .navbar-custom {
-  background: rgba(30, 41, 59, 0.85);
+  background: var(--site-gradient);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -478,7 +494,7 @@
 }
 
 .navbar-custom.scrolled {
-  background: rgba(30, 41, 59, 0.95);
+  background: var(--site-gradient);
   backdrop-filter: blur(15px);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
 }
@@ -518,7 +534,6 @@
 .btn-primary-custom:hover::before {
   left: 100%;
 }
-
 
 /* Services Grid Layout */
 .services-grid {

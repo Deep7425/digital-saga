@@ -2,6 +2,10 @@ import { useEffect } from "react";
 import { Route, Switch, useLocation } from "wouter";
 import CursorFollower from "./components/CursorFollower.jsx";
 import About from "./pages/About.jsx";
+import AdminContacts from "./pages/admin/AdminContacts.jsx";
+import AdminLogin from "./pages/admin/AdminLogin.jsx";
+import AdminPortfolios from "./pages/admin/AdminPortfolios.jsx";
+import AdminServices from "./pages/admin/AdminServices.jsx";
 import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -27,6 +31,10 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
+        <Route path="/admin/login" component={AdminLogin} />
+        <Route path="/admin" component={AdminContacts} />
+        <Route path="/admin/portfolios" component={AdminPortfolios} />
+        <Route path="/admin/services" component={AdminServices} />
         <Route component={NotFound} />
       </Switch>
       <CursorFollower/>

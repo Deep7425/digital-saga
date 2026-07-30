@@ -15,17 +15,16 @@ const About = () => {
       position: 'Founder & Chief Brand Strategist',
       bio: 'The brain behind Digital Saga – turning ideas into powerful brand stories and strategies.'
     },
-        {
-      name: 'Deepak Bhatt',
-      position: 'Chief Techical Officer (CTO)',
-      bio: 'Designing stunning, high-performance websites that bring brands to life.'
-    },
     {
       name: 'Meghna Sharma',
       position: 'Head of Social Strategy & Content',
       bio: 'Leads our social media magic – creating scroll-stopping content and engaging communities.'
     },
-
+    {
+      name: 'Deepak Bhatt',
+      position: 'Lead Web Architect',
+      bio: 'Designing stunning, high-performance websites that bring brands to life.'
+    },
     {
       name: 'Chetna Sharma',
       position: 'Creative Operations Specialist',
@@ -41,7 +40,7 @@ const About = () => {
       <section className="section bg-light" style={{ paddingTop: '120px' }}>
         <div className="container">
           <MotionDiv
-            className="text-center"
+            className="text-center mb-5"
             {...(!isMobile && {
               initial: { opacity: 0, y: 30 },
               animate: { opacity: 1, y: 0 },
@@ -174,14 +173,14 @@ const About = () => {
               viewport: { once: true }
             })}
           >
-            <h2 className="text-center mb-5 ">Our Values</h2>
+            <h2 className="text-center mb-5">Our Values</h2>
           </MotionDiv>
           <div className="row g-4">
             {[
               {
                 icon: 'fas fa-lightbulb',
-                title: 'Creativity',
-                text: 'We constantly explore creative ways and strategies to stay ahead of the digital competition.'
+                title: 'Innovation',
+                text: 'We constantly explore new technologies and strategies to stay ahead of the digital curve.'
               },
               {
                 icon: 'fas fa-handshake',

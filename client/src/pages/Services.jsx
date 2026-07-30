@@ -1,48 +1,30 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
+import { apiUrl } from '../lib/api';
 import Navbar from '../components/Navbar';
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
-  const services = [
-    {
-      icon: 'fas fa-envelope',
-      title: 'Web & App Development',
-      description: 'Development using latest technologies which makes website or application much more dynamic and interactive.',
-      features: ['SEO friendly', 'Interactive design', 'Responsive', 'Dynamic', 'Analytics and tracking', 'Fast Loading Speed']
-    },
-    {
-      icon: 'fas fa-search',
-      title: 'SEO Optimization',
-      description: 'Boost your search engine rankings and drive organic traffic with our comprehensive SEO strategies.',
-      features: ['Keyword Research', 'On-Page Optimization', 'Technical SEO', 'Link Building', 'Local SEO', 'SEO Audits']
-    },
-    {
-      icon: 'fas fa-bullhorn',
-      title: 'Social Media Marketing',
-      description: 'Engage your audience and build brand awareness across all major social media platforms.',
-      features: ['Content Strategy', 'Community Management', 'Paid Advertising', 'Influencer Marketing', 'Analytics & Reporting', 'Brand Monitoring']
-    },
-    {
-      icon: 'fas fa-paint-brush',
-      title: 'Brand Design',
-      description: 'Create a memorable brand identity that resonates with your target audience and stands out from the competition.',
-      features: ['Logo Design', 'Brand Guidelines', 'Visual Identity', 'Marketing Materials', 'Website Design', 'Brand Strategy']
-    },
-    {
-      icon: 'fas fa-chart-line',
-      title: 'Google and Facebook Ads',
-      description: 'Run smart ads on Google, Instagram & Facebook to get instant visibility, leads, and sales. We manage everything — from setup to results.',
-      features: ['Audience & keyword targeting', 'Creative ad copy and visuals', 'Campaign setup', 'A/B testing & daily optimization', 'Performance tracking & reports']
-    },
-    {
-      icon: 'fas fa-mobile-alt',
-      title: 'Mobile Marketing',
-      description: 'Reach your customers on-the-go with targeted mobile marketing campaigns and responsive design.',
-      features: ['Mobile App Marketing', 'SMS Campaigns', 'Mobile Advertising', 'App Store Optimization', 'Push Notifications', 'Mobile Analytics']
-    }
-  ];
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    let ignore = false;
+    (async () => {
+      try {
+        const res = await fetch(apiUrl('/api/services'));
+        const data = await res.json().catch(() => []);
+        if (!res.ok || !Array.isArray(data)) return;
+        if (!ignore) setServices(data);
+      } catch {
+        // no-op
+      }
+    })();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   return (
     <motion.div
@@ -57,12 +39,12 @@ const Services = () => {
       <section className="section bg-light" style={{ paddingTop: '120px' }}>
         <div className="container ">
           <motion.div
-            className="text-center"
+            className="text-center mb-5"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="display-4 fw-bold mb-4">Our Services</h1>
+            <h1 className="display-4 fw-bold mb-4 mt-4">Our Services</h1>
             <p className="lead">Comprehensive digital marketing solutions designed to grow your business and maximize your online presence.</p>
           </motion.div>
         </div>
@@ -73,7 +55,7 @@ const Services = () => {
         <div className="container">
           <div className="row g-4">
             {services.map((service, index) => (
-              <div key={index} className="col-lg-6">
+              <div key={service.id} className="col-lg-6">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +70,7 @@ const Services = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="service-icon-small">
-                      <i className={service.icon}></i>
+                      <i className={service.icon || 'fas fa-star'}></i>
                     </div>
                     <h5 className="mb-2 fs-3">{service.title}</h5>
                     <p className="text-muted small mb-3 fs-5">{service.description.substring(0, 80)}...</p>
@@ -287,7 +269,7 @@ const Services = () => {
             >
               <div className="d-flex justify-content-between align-items-start mb-4">
                 <div className="service-icon mb-3">
-                  <i className={selectedService.icon}></i>
+                  <i className={selectedService.icon || 'fas fa-star'}></i>
                 </div>
                 <button
                   className="btn-close"
@@ -306,7 +288,7 @@ const Services = () => {
                 <div className="col-md-6">
                   <h5 className="mb-3">What's Included:</h5>
                   <ul className="list-unstyled">
-                    {selectedService.features.map((feature, index) => (
+                    {(selectedService.features || []).map((feature, index) => (
                       <motion.li
                         key={index}
                         className="mb-3"

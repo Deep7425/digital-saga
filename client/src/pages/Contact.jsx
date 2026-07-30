@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useLocation } from 'wouter';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { apiUrl } from '../lib/api';
 
 const Contact = () => {
+  const [, navigate] = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -54,15 +57,34 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      setIsSubmitting(true);
-      setTimeout(() => {
-        alert('Thank you for your message! We will get back to you within 24 hours.');
-        setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' });
-        setIsSubmitting(false);
-        console.log(formData)
-        navigate('/');
-      }, 2000);
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch(apiUrl('/api/contacts'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        const msg =
+          data?.message ||
+          (data?.errors && Object.values(data.errors).flat().join(' ')) ||
+          'Something went wrong. Please try again.';
+        alert(msg);
+        return;
+      }
+      alert(data.message || 'Thank you for your message! We will get back to you within 24 hours.');
+      setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' });
+      navigate('/');
+    } catch {
+      alert('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -73,7 +95,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="section bg-light" style={{ paddingTop: '120px' }}>
         <div className="container">
-          <div className="text-center">
+          <div className="text-center mb-5">
             <h1 className="display-4 fw-bold mb-4">Get In Touch</h1>
             <p className="lead">Ready to transform your digital presence? Let's start a conversation about your goals and how we can help achieve them.</p>
           </div>
@@ -86,7 +108,7 @@ const Contact = () => {
           <div className="row g-5">
             <div className="col-lg-8">
               <div className="contact-form">
-                <h3 className="mb-4">Send Us a Message</h3>
+                <h3 className="mb-4">Send us a Message</h3>
                 <form onSubmit={handleSubmit}>
                   <div className="row g-3">
                     <div className="col-md-6">
@@ -149,8 +171,6 @@ const Contact = () => {
                         onChange={handleChange}
                       >
                         <option value="">Select a service (optional)</option>
-                        <option value="web">Web & App Development</option>
-                        <option value="ai">AI Services & Chatbot</option>
                         <option value="seo">SEO Optimization</option>
                         <option value="social">Social Media Marketing</option>
                         <option value="design">Brand Design</option>
@@ -216,10 +236,10 @@ const Contact = () => {
                 <div className="mb-4">
                   <h6 className="mb-3">Follow Us</h6>
                   <div className="d-flex gap-3">
-                    <a href="https://www.linkedin.com/company/the-digital-saga/" className="text-decoration-none">
+                    <a href="https://www.instagram.com/digital.saga.in?igsh=ZG91dHcwdXR2M3hu" className="text-decoration-none">
                       <i className="fab fa-linkedin-in fa-lg" style={{ color: 'hsla(269, 76%, 35%, 1.00)' }}></i>
                     </a>
-                    <a href="https://www.instagram.com/digital.saga.in?igsh=ZG91dHcwdXR2M3hu" className="text-decoration-none">
+                    <a href="https://www.linkedin.com/company/the-digital-saga/" className="text-decoration-none">
                       <i className="fab fa-instagram fa-lg" style={{ color: 'hsla(269, 76%, 35%, 1.00)' }}></i>
                     </a>
                   </div>

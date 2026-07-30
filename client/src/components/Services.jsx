@@ -1,40 +1,29 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
+import { apiUrl } from '../lib/api';
 import TiltCard from './TiltCard';
 
 const Services = () => {
-  const services = [
-    {
-      icon: 'fas fa-envelope',
-      title: 'Web & App Development',
-      description: 'Development using latest technologies which makes website or application much more dynamic and interactive.'
-    },
-    {
-      icon: 'fas fa-search',
-      title: 'SEO Optimization',
-      description: 'Boost your search engine rankings and drive organic traffic with our comprehensive SEO strategies.'
-    },
-    {
-      icon: 'fas fa-bullhorn',
-      title: 'Social Media Marketing',
-      description: 'Engage your audience and build brand awareness across all major social media platforms.'
-    },
-    {
-      icon: 'fas fa-paint-brush',
-      title: 'Brand Design',
-      description: 'Create a memorable brand identity that resonates with your target audience and stands out from the competition.'
-    },
-    {
-      icon: 'fas fa-chart-line',
-      title: 'Google and Facebook Ads',
-      description: 'Run smart ads on Google, Instagram & Facebook to get instant visibility, leads, and sales.'
-    },
-    {
-      icon: 'fas fa-mobile-alt',
-      title: 'Mobile Marketing',
-      description: 'Reach your customers on-the-go with targeted mobile marketing campaigns and responsive design.'
-    }
-  ];
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    let ignore = false;
+    (async () => {
+      try {
+        const res = await fetch(apiUrl('/api/services'));
+        const data = await res.json().catch(() => []);
+        if (!res.ok || !Array.isArray(data)) return;
+        if (!ignore) setServices(data);
+      } catch {
+        // keep empty state if API unavailable
+      }
+    })();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   return (
     <section className="section">
@@ -50,7 +39,7 @@ const Services = () => {
         </motion.h2>
         <div className="row g-4">
           {services.map((service, index) => (
-            <div key={index} className="col-lg-4 col-md-6">
+            <div key={service.id} className="col-lg-4 col-md-6">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +49,7 @@ const Services = () => {
                 <TiltCard intensity={16}>
                   <div className="services-card">
                     <div className="service-icon">
-                      <i className={service.icon}></i>
+                      <i className={service.icon || 'fas fa-star'}></i>
                     </div>
                     <h4 className="mb-3">{service.title}</h4>
                     <p className="mb-4">{service.description}</p>
@@ -74,10 +63,10 @@ const Services = () => {
                           }}
                           whileTap={{ scale: 0.95 }}
                           style={{
-                            borderColor: 'hsla(261, 79%, 28%, 1.00)',
+                            borderColor: 'hsl(249, 83%, 63%)',
                             color: '#fff',
                             fontWeight: '600',
-                            backgroundColor: 'hsla(261, 79%, 28%, 1.00)'
+                            backgroundColor: 'hsl(249, 83%, 63%)'
                           }}
                         >
                           Learn More
